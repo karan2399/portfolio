@@ -11,5 +11,6 @@ export default defineConfig({
     alias : {
       "@": path.resolve(__dirname,"./src")
     }
-  }
+  },
+   base: 'https://github.com/karan2399/portfolio',
 })
