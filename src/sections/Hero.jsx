@@ -79,7 +79,7 @@ const Hero = () => {
               </h1>
               <p className="text-lg text-muted-foreground max-w-lg animate-fade-in animation-delay-200">
                 Hi, I'm Karan Patel — a front end engineer specializing in
-                Angular, React Ionic and TypeScript. I build scalable, performant web
+                Angular, React, Ionic and TypeScript. I build scalable, performant web
                 applications that users love.
               </p>
             </div>

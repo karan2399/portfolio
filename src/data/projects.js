@@ -16,7 +16,7 @@ export const projects = [
         caption: "Inquiry management",
       },
     ],
-    tags: ["React", "TypeScript", "Node.js", "Bootstrap"],
+    tags: ["Angular", "TypeScript", "Node.js", "Tailwind CSS"],
     highlights: [
       "Responsive dashboard and inquiry workflows",
       "Reusable React components and TypeScript types",
