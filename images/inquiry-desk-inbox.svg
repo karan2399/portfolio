@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" fill="none">
+  <rect width="1200" height="675" fill="#10171C"/>
+  <rect x="34" y="34" width="1132" height="607" rx="20" fill="#151F25" stroke="#29363D" stroke-width="2"/>
+  <rect x="34" y="34" width="214" height="607" rx="20" fill="#11191E"/>
+  <path d="M248 34h898a20 20 0 0 1 20 20v567a20 20 0 0 1-20 20H248V34Z" fill="#151F25"/>
+  <circle cx="78" cy="82" r="18" fill="#20B2A6"/>
+  <text x="109" y="90" fill="#F0F2F5" font-family="Arial,sans-serif" font-size="21" font-weight="700">Inquiry Desk</text>
+  <text x="82" y="163" fill="#89969D" font-family="Arial,sans-serif" font-size="15">Overview</text>
+  <rect x="59" y="184" width="164" height="39" rx="9" fill="#203936"/>
+  <text x="82" y="209" fill="#45D0C2" font-family="Arial,sans-serif" font-size="15">Inquiries</text>
+  <text x="82" y="260" fill="#89969D" font-family="Arial,sans-serif" font-size="15">Customers</text>
+  <text x="82" y="305" fill="#89969D" font-family="Arial,sans-serif" font-size="15">Settings</text>
+  <text x="285" y="91" fill="#F0F2F5" font-family="Arial,sans-serif" font-size="25" font-weight="700">Inquiries</text>
+  <text x="285" y="119" fill="#89969D" font-family="Arial,sans-serif" font-size="15">Review, organize, and respond to customer requests.</text>
+  <rect x="285" y="150" width="826" height="61" rx="12" fill="#1C292F" stroke="#29363D"/>
+  <text x="310" y="187" fill="#77868D" font-family="Arial,sans-serif" font-size="15">Search inquiries...</text>
+  <rect x="933" y="164" width="151" height="34" rx="8" fill="#20B2A6"/>
+  <text x="960" y="186" fill="#F5FFFE" font-family="Arial,sans-serif" font-size="13" font-weight="700">+ New inquiry</text>
+  <rect x="285" y="231" width="826" height="365" rx="14" fill="#1C292F" stroke="#29363D"/>
+  <text x="310" y="271" fill="#89969D" font-family="Arial,sans-serif" font-size="13">INQUIRY</text>
+  <text x="710" y="271" fill="#89969D" font-family="Arial,sans-serif" font-size="13">DATE</text>
+  <text x="870" y="271" fill="#89969D" font-family="Arial,sans-serif" font-size="13">PRIORITY</text>
+  <text x="1000" y="271" fill="#89969D" font-family="Arial,sans-serif" font-size="13">STATUS</text>
+  <path d="M310 286h776M310 356h776M310 426h776M310 496h776M310 566h776" stroke="#2B383F"/>
+  <circle cx="329" cy="321" r="18" fill="#35464B"/>
+  <text x="324" y="326" fill="#D6E4E5" font-family="Arial,sans-serif" font-size="12">JL</text>
+  <text x="361" y="316" fill="#E4EAEC" font-family="Arial,sans-serif" font-size="15" font-weight="700">Website redesign</text>
+  <text x="361" y="337" fill="#89969D" font-family="Arial,sans-serif" font-size="12">Jordan Lee · jordan@example.test</text>
+  <text x="710" y="326" fill="#B2BDC1" font-family="Arial,sans-serif" font-size="14">Oct 21, 2026</text>
+  <text x="870" y="326" fill="#E9B95F" font-family="Arial,sans-serif" font-size="14">High</text>
+  <rect x="990" y="307" width="94" height="27" rx="13" fill="#3B3020"/>
+  <text x="1005" y="326" fill="#E9B95F" font-family="Arial,sans-serif" font-size="12">In progress</text>
+  <circle cx="329" cy="391" r="18" fill="#35464B"/>
+  <text x="323" y="396" fill="#D6E4E5" font-family="Arial,sans-serif" font-size="12">TM</text>
+  <text x="361" y="386" fill="#E4EAEC" font-family="Arial,sans-serif" font-size="15" font-weight="700">Product consultation</text>
+  <text x="361" y="407" fill="#89969D" font-family="Arial,sans-serif" font-size="12">Taylor Morgan · taylor@example.test</text>
+  <text x="710" y="396" fill="#B2BDC1" font-family="Arial,sans-serif" font-size="14">Oct 20, 2026</text>
+  <text x="870" y="396" fill="#AAB8BD" font-family="Arial,sans-serif" font-size="14">Normal</text>
+  <rect x="990" y="377" width="94" height="27" rx="13" fill="#203936"/>
+  <text x="1007" y="396" fill="#45D0C2" font-family="Arial,sans-serif" font-size="12">New</text>
+  <circle cx="329" cy="461" r="18" fill="#35464B"/>
+  <text x="323" y="466" fill="#D6E4E5" font-family="Arial,sans-serif" font-size="12">SR</text>
+  <text x="361" y="456" fill="#E4EAEC" font-family="Arial,sans-serif" font-size="15" font-weight="700">Service question</text>
+  <text x="361" y="477" fill="#89969D" font-family="Arial,sans-serif" font-size="12">Sam Rivera · sam@example.test</text>
+  <text x="710" y="466" fill="#B2BDC1" font-family="Arial,sans-serif" font-size="14">Oct 18, 2026</text>
+  <text x="870" y="466" fill="#AAB8BD" font-family="Arial,sans-serif" font-size="14">Low</text>
+  <rect x="990" y="447" width="94" height="27" rx="13" fill="#26353B"/>
+  <text x="1004" y="466" fill="#AAB8BD" font-family="Arial,sans-serif" font-size="12">Resolved</text>
+  <text x="310" y="578" fill="#89969D" font-family="Arial,sans-serif" font-size="13">Showing 3 of 24 inquiries</text>
+</svg>

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" fill="none">
+  <rect width="1200" height="675" fill="#10171C"/>
+  <rect x="34" y="34" width="1132" height="607" rx="20" fill="#151F25" stroke="#29363D" stroke-width="2"/>
+  <rect x="34" y="34" width="214" height="607" rx="20" fill="#11191E"/>
+  <path d="M248 34h898a20 20 0 0 1 20 20v567a20 20 0 0 1-20 20H248V34Z" fill="#151F25"/>
+  <circle cx="78" cy="82" r="18" fill="#20B2A6"/>
+  <text x="109" y="90" fill="#F0F2F5" font-family="Arial,sans-serif" font-size="21" font-weight="700">Inquiry Desk</text>
+  <rect x="59" y="138" width="164" height="39" rx="9" fill="#203936"/>
+  <text x="82" y="163" fill="#45D0C2" font-family="Arial,sans-serif" font-size="15">Overview</text>
+  <text x="82" y="215" fill="#89969D" font-family="Arial,sans-serif" font-size="15">Inquiries</text>
+  <text x="82" y="260" fill="#89969D" font-family="Arial,sans-serif" font-size="15">Customers</text>
+  <text x="82" y="305" fill="#89969D" font-family="Arial,sans-serif" font-size="15">Settings</text>
+  <text x="285" y="91" fill="#F0F2F5" font-family="Arial,sans-serif" font-size="25" font-weight="700">Good morning, Alex</text>
+  <text x="285" y="119" fill="#89969D" font-family="Arial,sans-serif" font-size="15">Here’s what’s happening with your inquiries.</text>
+  <rect x="285" y="151" width="255" height="119" rx="14" fill="#1C292F" stroke="#29363D"/>
+  <rect x="560" y="151" width="255" height="119" rx="14" fill="#1C292F" stroke="#29363D"/>
+  <rect x="835" y="151" width="276" height="119" rx="14" fill="#1C292F" stroke="#29363D"/>
+  <text x="309" y="185" fill="#A3B0B5" font-family="Arial,sans-serif" font-size="14">Open inquiries</text>
+  <text x="309" y="236" fill="#F0F2F5" font-family="Arial,sans-serif" font-size="37" font-weight="700">24</text>
+  <text x="584" y="185" fill="#A3B0B5" font-family="Arial,sans-serif" font-size="14">Awaiting reply</text>
+  <text x="584" y="236" fill="#F0F2F5" font-family="Arial,sans-serif" font-size="37" font-weight="700">08</text>
+  <text x="859" y="185" fill="#A3B0B5" font-family="Arial,sans-serif" font-size="14">Resolved this month</text>
+  <text x="859" y="236" fill="#F0F2F5" font-family="Arial,sans-serif" font-size="37" font-weight="700">56</text>
+  <rect x="285" y="295" width="826" height="300" rx="14" fill="#1C292F" stroke="#29363D"/>
+  <text x="310" y="335" fill="#F0F2F5" font-family="Arial,sans-serif" font-size="19" font-weight="700">Recent inquiries</text>
+  <text x="310" y="379" fill="#89969D" font-family="Arial,sans-serif" font-size="13">CUSTOMER</text>
+  <text x="620" y="379" fill="#89969D" font-family="Arial,sans-serif" font-size="13">SUBJECT</text>
+  <text x="932" y="379" fill="#89969D" font-family="Arial,sans-serif" font-size="13">STATUS</text>
+  <path d="M310 395h776M310 454h776M310 513h776M310 572h776" stroke="#2B383F"/>
+  <text x="310" y="430" fill="#E4EAEC" font-family="Arial,sans-serif" font-size="15">Jordan Lee</text>
+  <text x="620" y="430" fill="#B2BDC1" font-family="Arial,sans-serif" font-size="15">Website redesign</text>
+  <rect x="932" y="410" width="100" height="27" rx="13" fill="#3B3020"/>
+  <text x="949" y="429" fill="#E9B95F" font-family="Arial,sans-serif" font-size="12">In progress</text>
+  <text x="310" y="489" fill="#E4EAEC" font-family="Arial,sans-serif" font-size="15">Taylor Morgan</text>
+  <text x="620" y="489" fill="#B2BDC1" font-family="Arial,sans-serif" font-size="15">Product consultation</text>
+  <rect x="932" y="469" width="100" height="27" rx="13" fill="#203936"/>
+  <text x="949" y="488" fill="#45D0C2" font-family="Arial,sans-serif" font-size="12">New</text>
+  <text x="310" y="548" fill="#E4EAEC" font-family="Arial,sans-serif" font-size="15">Sam Rivera</text>
+  <text x="620" y="548" fill="#B2BDC1" font-family="Arial,sans-serif" font-size="15">Service question</text>
+  <rect x="932" y="528" width="100" height="27" rx="13" fill="#26353B"/>
+  <text x="949" y="547" fill="#AAB8BD" font-family="Arial,sans-serif" font-size="12">Resolved</text>
+</svg>
