@@ -1,49 +1,55 @@
-export const projects = [
-  {
-    slug: "inquiry-desk",
-    title: "Inquiry Desk",
-    description: "An inquiry management web app for business owners.",
-    image: "/images/inquiry-desk-3.png",
-    screenshots: [
-      {
-        src: "/images/inquiry-desk-1.png",
-        alt: "Illustrative Inquiry Desk dashboard preview",
-        caption: "Statuses",
-      },
-      {
-        src: "/images/inquiry-desk-2.png",
-        alt: "Illustrative Inquiry Desk inbox preview",
-        caption: "Categories",
-      },
-       {
-        src: "/images/inquiry-desk-3.png",
-        alt: "Illustrative Inquiry Desk inbox preview",
-        caption: "Inquiries",
-      },
-       {
-        src: "/images/inquiry-desk-4.png",
-        alt: "Illustrative Inquiry Desk inbox preview",
-        caption: "Login/Home Page",
-      },
-    ],
-    tags: ["Angular", "TypeScript", "Node.js", "Tailwind CSS"],
-    highlights: [
-      "Responsive dashboard and inquiry workflows",
-      "Reusable Angular components and TypeScript types",
-      "Inquiry status tracking and search",
-      "REST API integration",
-      "Interceptors: Error and Token",
-      "Form validation and accessible interactions",
-    ],
-    overview:
-      "Inquiry Desk helps a small business keep customer requests organized in one place. This sample project detail content demonstrates how the project story, interface previews, and key implementation topics can be presented.",
-    role: "Full-stack development",
-    demoCredentials: {
-      email: "admin",
-      password: "admin",
-      note: "This is an admin account who can manage inquries, categories and statuses.",
-    },
-    liveDemoUrl: "https://inqiury-desk-uo76.vercel.app/",
-    github: "https://github.com/karan2399/inqiuryDesk",
-  },
-];
+const projectsUrl =
+  "https://gist.githubusercontent.com/karan2399/a07ac9de0c84ef94a10c52da301fe727/raw/projects.json";
+
+const isRecord = (value) =>
+  typeof value === "object" && value !== null && !Array.isArray(value);
+
+const isStringArray = (value) =>
+  Array.isArray(value) && value.every((item) => typeof item === "string");
+
+export const resolveProjectImageUrl = (src) =>
+  /^https?:\/\//i.test(src)
+    ? src
+    : `${import.meta.env.BASE_URL}${src.replace(/^\/+/, "")}`;
+
+export const findProjectFromHash = (hash, projects) => {
+  const slug = hash.match(/^#project\/([^/]+)$/)?.[1];
+  return projects.find((project) => project.slug === slug) ?? null;
+};
+
+const isProject = (project) =>
+  isRecord(project) &&
+  ["slug", "title", "description", "image", "overview", "role", "liveDemoUrl", "github"].every(
+    (key) => typeof project[key] === "string",
+  ) &&
+  Array.isArray(project.screenshots) &&
+  project.screenshots.every(
+    (screenshot) =>
+      isRecord(screenshot) &&
+      ["src", "alt", "caption"].every((key) => typeof screenshot[key] === "string"),
+  ) &&
+  isStringArray(project.tags) &&
+  isStringArray(project.highlights) &&
+  isRecord(project.demoCredentials) &&
+  ["email", "password", "note"].every(
+    (key) => typeof project.demoCredentials[key] === "string",
+  );
+
+export async function fetchProjects(signal) {
+  const response = await fetch(projectsUrl, { cache: "no-store", signal });
+  if (!response.ok) {
+    throw new Error(`Could not load projects (${response.status}).`);
+  }
+
+  const projects = await response.json();
+  if (!Array.isArray(projects) || !projects.every(isProject)) {
+    throw new Error("The project Gist must contain an array of valid project objects.");
+  }
+
+  const slugs = projects.map((project) => project.slug);
+  if (new Set(slugs).size !== slugs.length) {
+    throw new Error("Every project in the Gist must have a unique slug.");
+  }
+
+  return projects;
+}

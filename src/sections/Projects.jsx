@@ -1,8 +1,8 @@
 import { ArrowUp, ArrowUpRight } from "lucide-react";
 import  AnimatedBorderButton  from "@/components/AnimatedBorderButton";
-import { projects } from "@/data/projects";
+import { resolveProjectImageUrl } from "@/data/projects";
 
-const Projects = () => {
+const Projects = ({ projects, status }) => {
   const projectGridClass =
     projects.length === 1
       ? "mx-auto max-w-3xl grid-cols-1"
@@ -35,61 +35,73 @@ const Projects = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className={`grid ${projectGridClass} gap-8`}>
-          {projects.map((project, idx) => (
-            <a
-              key={project.slug}
-              href={`#project/${project.slug}`}
-              aria-label={`View details for ${project.title}`}
-              className="group glass rounded-2xl overflow-hidden animate-fade-in md:row-span-1"
-              style={{ animationDelay: `${(idx + 1) * 100}ms` }}
-            >
-              {/* Image */}
-              <div className="relative overflow-hidden aspect-video">
-                <img
-                  src={`${import.meta.env.BASE_URL}${project.image.replace(/^\//, "")}`}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div
-                  className="absolute inset-0 
+        {status === "loading" && (
+          <p role="status" className="text-center text-muted-foreground">
+            Loading projects…
+          </p>
+        )}
+        {status === "error" && (
+          <p role="alert" className="text-center text-muted-foreground">
+            Project details couldn’t be loaded. Please try again later.
+          </p>
+        )}
+        {status === "loaded" && (
+          <div className={`grid ${projectGridClass} gap-8`}>
+            {projects.map((project, idx) => (
+              <a
+                key={project.slug}
+                href={`#project/${project.slug}`}
+                aria-label={`View details for ${project.title}`}
+                className="group glass rounded-2xl overflow-hidden animate-fade-in md:row-span-1"
+                style={{ animationDelay: `${(idx + 1) * 100}ms` }}
+              >
+                {/* Image */}
+                <div className="relative overflow-hidden aspect-video">
+                  <img
+                    src={resolveProjectImageUrl(project.image)}
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div
+                    className="absolute inset-0
                 bg-gradient-to-t from-card via-card/50
                  to-transparent opacity-60"
-                />
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  <span className="inline-flex items-center gap-2 rounded-full glass px-5 py-3 text-sm font-medium">
-                    View project details <ArrowUpRight className="h-4 w-4" />
-                  </span>
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="space-y-4 p-6">
-                <div className="flex items-start justify-between">
-                  <h3 className="text-xl font-semibold transition-colors group-hover:text-primary">
-                    {project.title}
-                  </h3>
-                  <ArrowUp
-                    className="h-5 w-5 text-muted-foreground transition-all group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-primary"
                   />
-                </div>
-                <p className="text-muted-foreground text-sm">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full border border-border/50 bg-surface px-4 py-1.5 text-xs font-medium text-muted-foreground transition-all duration-300 hover:border-primary/50 hover:text-primary"
-                    >
-                      {tag}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    <span className="inline-flex items-center gap-2 rounded-full glass px-5 py-3 text-sm font-medium">
+                      View project details <ArrowUpRight className="h-4 w-4" />
                     </span>
-                  ))}
+                  </div>
                 </div>
-              </div>
-            </a>
-          ))}
-        </div>
+
+                {/* Content */}
+                <div className="space-y-4 p-6">
+                  <div className="flex items-start justify-between">
+                    <h3 className="text-xl font-semibold transition-colors group-hover:text-primary">
+                      {project.title}
+                    </h3>
+                    <ArrowUp
+                      className="h-5 w-5 text-muted-foreground transition-all group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-primary"
+                    />
+                  </div>
+                  <p className="text-muted-foreground text-sm">
+                    {project.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full border border-border/50 bg-surface px-4 py-1.5 text-xs font-medium text-muted-foreground transition-all duration-300 hover:border-primary/50 hover:text-primary"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+        )}
 
         {/* View All CTA */}
         <div className="text-center mt-12 animate-fade-in animation-delay-500">

@@ -5,18 +5,39 @@ import Experience from "@/sections/Experience";
 import Testimonials from "@/sections/Testimonials";
 import Contact from "@/sections/Contact";
 import Navbar from "@/layout/Navbar";
-import ProjectDetail, { findProjectFromHash } from "@/sections/ProjectDetail";
+import ProjectDetail from "@/sections/ProjectDetail";
+import { fetchProjects, findProjectFromHash } from "@/data/projects";
 import { useEffect, useState } from "react";
 
 
 function App() {
-  const [project, setProject] = useState(() => findProjectFromHash(window.location.hash));
+  const [projects, setProjects] = useState([]);
+  const [projectsStatus, setProjectsStatus] = useState("loading");
+  const [project, setProject] = useState(null);
 
   useEffect(() => {
-    const updateProject = () => setProject(findProjectFromHash(window.location.hash));
+    const controller = new AbortController();
+    fetchProjects(controller.signal)
+      .then((loadedProjects) => {
+        setProjects(loadedProjects);
+        setProjectsStatus("loaded");
+      })
+      .catch((error) => {
+        if (controller.signal.aborted) return;
+        console.error("Could not load project data.", error);
+        setProjectsStatus("error");
+      });
+
+    return () => controller.abort();
+  }, []);
+
+  useEffect(() => {
+    const updateProject = () =>
+      setProject(findProjectFromHash(window.location.hash, projects));
+    updateProject();
     window.addEventListener("hashchange", updateProject);
     return () => window.removeEventListener("hashchange", updateProject);
-  }, []);
+  }, [projects]);
 
   useEffect(() => {
     if (project) {
@@ -36,7 +57,7 @@ function App() {
           <main>
             <Hero />
             <About />
-            <Projects />
+            <Projects projects={projects} status={projectsStatus} />
             <Experience />
             <Testimonials />
             <Contact />

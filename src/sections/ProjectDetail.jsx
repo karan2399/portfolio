@@ -6,7 +6,7 @@ import {
   ExternalLink,
 } from "lucide-react";
 import { useState } from "react";
-import { projects } from "@/data/projects";
+import { resolveProjectImageUrl } from "@/data/projects";
 
 const ProjectDetail = ({ project }) => {
   const [copyStatus, setCopyStatus] = useState("");
@@ -82,7 +82,7 @@ const ProjectDetail = ({ project }) => {
             {project.screenshots.map((screenshot) => (
               <figure key={screenshot.src} className="glass overflow-hidden rounded-2xl">
                 <img
-                  src={`${import.meta.env.BASE_URL}${screenshot.src.replace(/^\//, "")}`}
+                  src={resolveProjectImageUrl(screenshot.src)}
                   alt={screenshot.alt}
                   className="aspect-video w-full object-fill"
                 />
@@ -197,8 +197,3 @@ const ProjectDetail = ({ project }) => {
 };
 
 export default ProjectDetail;
-
-export const findProjectFromHash = (hash) => {
-  const slug = hash.match(/^#project\/([^/]+)$/)?.[1];
-  return projects.find((project) => project.slug === slug);
-};
