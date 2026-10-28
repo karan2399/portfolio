@@ -29,9 +29,10 @@ export const projects = [
     tags: ["Angular", "TypeScript", "Node.js", "Tailwind CSS"],
     highlights: [
       "Responsive dashboard and inquiry workflows",
-      "Reusable React components and TypeScript types",
+      "Reusable Angular components and TypeScript types",
       "Inquiry status tracking and search",
       "REST API integration",
+      "Interceptors: Error and Token",
       "Form validation and accessible interactions",
     ],
     overview:
