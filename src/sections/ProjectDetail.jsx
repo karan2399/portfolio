@@ -84,7 +84,7 @@ const ProjectDetail = ({ project }) => {
                 <img
                   src={`${import.meta.env.BASE_URL}${screenshot.src.replace(/^\//, "")}`}
                   alt={screenshot.alt}
-                  className="aspect-video w-full object-cover"
+                  className="aspect-video w-full object-fill"
                 />
                 <figcaption className="px-5 py-4 text-sm text-muted-foreground">
                   {screenshot.caption}

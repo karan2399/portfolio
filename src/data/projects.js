@@ -3,17 +3,27 @@ export const projects = [
     slug: "inquiry-desk",
     title: "Inquiry Desk",
     description: "An inquiry management web app for business owners.",
-    image: "/images/inquiry-desk-dashboard.svg",
+    image: "/images/inquiry-desk-3.png",
     screenshots: [
       {
-        src: "/images/inquiry-desk-dashboard.svg",
+        src: "/images/inquiry-desk-1.png",
         alt: "Illustrative Inquiry Desk dashboard preview",
-        caption: "Dashboard overview",
+        caption: "Statuses",
       },
       {
-        src: "/images/inquiry-desk-inbox.svg",
+        src: "/images/inquiry-desk-2.png",
         alt: "Illustrative Inquiry Desk inbox preview",
-        caption: "Inquiry management",
+        caption: "Categories",
+      },
+       {
+        src: "/images/inquiry-desk-3.png",
+        alt: "Illustrative Inquiry Desk inbox preview",
+        caption: "Inquiries",
+      },
+       {
+        src: "/images/inquiry-desk-4.png",
+        alt: "Illustrative Inquiry Desk inbox preview",
+        caption: "Login/Home Page",
       },
     ],
     tags: ["Angular", "TypeScript", "Node.js", "Tailwind CSS"],
@@ -32,7 +42,7 @@ export const projects = [
       password: "admin",
       note: "This is an admin account who can manage inquries, categories and statuses.",
     },
-    liveDemoUrl: "https://example.com",
+    liveDemoUrl: "https://inqiury-desk-uo76.vercel.app/",
     github: "https://github.com/karan2399/inqiuryDesk",
   },
 ];
