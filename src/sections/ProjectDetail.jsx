@@ -78,20 +78,22 @@ const ProjectDetail = ({ project }) => {
             </p>
           </div>
 
-          <div className="grid gap-5 md:grid-cols-2">
-            {project.screenshots.map((screenshot) => (
-              <figure key={screenshot.src} className="glass overflow-hidden rounded-2xl">
-                <img
-                  src={resolveProjectImageUrl(screenshot.src)}
-                  alt={screenshot.alt}
-                  className="aspect-video w-full object-fill"
-                />
-                <figcaption className="px-5 py-4 text-sm text-muted-foreground">
-                  {screenshot.caption}
-                </figcaption>
-              </figure>
-            ))}
-          </div>
+          {project.screenshots?.length > 0 && (
+            <div className="grid gap-5 md:grid-cols-2">
+              {project.screenshots.map((screenshot) => (
+                <figure key={screenshot.src} className="glass overflow-hidden rounded-2xl">
+                  <img
+                    src={resolveProjectImageUrl(screenshot.src)}
+                    alt={screenshot.alt}
+                    className="aspect-video w-full object-fill"
+                  />
+                  <figcaption className="px-5 py-4 text-sm text-muted-foreground">
+                    {screenshot.caption}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          )}
 
           <div className="mt-16 grid gap-12 lg:grid-cols-[1.4fr_1fr]">
             <div className="space-y-12">
@@ -130,49 +132,51 @@ const ProjectDetail = ({ project }) => {
             </div>
 
             <aside className="space-y-6">
-              <section className="glass rounded-2xl p-6">
-                <h2 className="text-xl font-semibold">Try the demo</h2>
-                <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                  These are dummy credentials for layout preview only. They are
-                  not real account details.
-                </p>
-                <dl className="mt-5 space-y-4">
-                  <div>
-                    <dt className="text-xs uppercase tracking-wider text-muted-foreground">
-                      Email
-                    </dt>
-                    <dd className="mt-1 break-all font-mono text-sm">
-                      {project.demoCredentials.email}
-                    </dd>
-                  </div>
-                  <div>
-                    <dt className="text-xs uppercase tracking-wider text-muted-foreground">
-                      Password
-                    </dt>
-                    <dd className="mt-1 font-mono text-sm">
-                      {project.demoCredentials.password}
-                    </dd>
-                  </div>
-                </dl>
-                <button
-                  type="button"
-                  onClick={copyCredentials}
-                  className="mt-6 inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm transition-colors hover:border-primary/50 hover:text-primary"
-                >
-                  {copyStatus === "Copied" ? (
-                    <Check className="h-4 w-4" />
-                  ) : (
-                    <Copy className="h-4 w-4" />
-                  )}
-                  {copyStatus || "Copy credentials"}
-                </button>
-                <span role="status" aria-live="polite" className="sr-only">
-                  {copyStatus}
-                </span>
-                <p className="mt-4 text-xs text-muted-foreground">
-                  {project.demoCredentials.note}
-                </p>
-              </section>
+              {project.demoCredentials && (
+                <section className="glass rounded-2xl p-6">
+                  <h2 className="text-xl font-semibold">Try the demo</h2>
+                  <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                    These are dummy credentials for layout preview only. They are
+                    not real account details.
+                  </p>
+                  <dl className="mt-5 space-y-4">
+                    <div>
+                      <dt className="text-xs uppercase tracking-wider text-muted-foreground">
+                        Email
+                      </dt>
+                      <dd className="mt-1 break-all font-mono text-sm">
+                        {project.demoCredentials.email}
+                      </dd>
+                    </div>
+                    <div>
+                      <dt className="text-xs uppercase tracking-wider text-muted-foreground">
+                        Password
+                      </dt>
+                      <dd className="mt-1 font-mono text-sm">
+                        {project.demoCredentials.password}
+                      </dd>
+                    </div>
+                  </dl>
+                  <button
+                    type="button"
+                    onClick={copyCredentials}
+                    className="mt-6 inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm transition-colors hover:border-primary/50 hover:text-primary"
+                  >
+                    {copyStatus === "Copied" ? (
+                      <Check className="h-4 w-4" />
+                    ) : (
+                      <Copy className="h-4 w-4" />
+                    )}
+                    {copyStatus || "Copy credentials"}
+                  </button>
+                  <span role="status" aria-live="polite" className="sr-only">
+                    {copyStatus}
+                  </span>
+                  <p className="mt-4 text-xs text-muted-foreground">
+                    {project.demoCredentials.note}
+                  </p>
+                </section>
+              )}
 
               <a
                 href={project.github}

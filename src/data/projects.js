@@ -7,6 +7,20 @@ const isRecord = (value) =>
 const isStringArray = (value) =>
   Array.isArray(value) && value.every((item) => typeof item === "string");
 
+const isScreenshotArray = (value) =>
+  Array.isArray(value) &&
+  value.every(
+    (screenshot) =>
+      isRecord(screenshot) &&
+      ["src", "alt", "caption"].every((key) => typeof screenshot[key] === "string"),
+  );
+
+const isDemoCredentials = (value) =>
+  isRecord(value) &&
+  ["email", "password", "note"].every(
+    (key) => typeof value[key] === "string",
+  );
+
 export const resolveProjectImageUrl = (src) =>
   /^https?:\/\//i.test(src)
     ? src
@@ -19,21 +33,15 @@ export const findProjectFromHash = (hash, projects) => {
 
 const isProject = (project) =>
   isRecord(project) &&
-  ["slug", "title", "description", "image", "overview", "role", "liveDemoUrl", "github"].every(
+  ["slug", "title", "description", "overview", "role", "liveDemoUrl", "github"].every(
     (key) => typeof project[key] === "string",
   ) &&
-  Array.isArray(project.screenshots) &&
-  project.screenshots.every(
-    (screenshot) =>
-      isRecord(screenshot) &&
-      ["src", "alt", "caption"].every((key) => typeof screenshot[key] === "string"),
-  ) &&
+  (project.image === undefined || typeof project.image === "string") &&
+  (project.screenshots === undefined || isScreenshotArray(project.screenshots)) &&
   isStringArray(project.tags) &&
   isStringArray(project.highlights) &&
-  isRecord(project.demoCredentials) &&
-  ["email", "password", "note"].every(
-    (key) => typeof project.demoCredentials[key] === "string",
-  );
+  (project.demoCredentials === undefined ||
+    isDemoCredentials(project.demoCredentials));
 
 export async function fetchProjects(signal) {
   const response = await fetch(projectsUrl, { cache: "no-store", signal });
