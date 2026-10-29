@@ -8,6 +8,10 @@ Keep the file named `projects.json` and make sure it remains a **public** Gist c
 
 Image paths such as `/images/inquiry-desk-1.png` refer to files already included with the deployed site. Adding or replacing local images still requires a site deployment; use publicly hosted `https://` image URLs in the Gist to change images without one. Everything in the public Gist is visible to anyone. The `demoCredentials` fields are displayed on the site, so use only safe demo-account details there; never include private information, API keys, or real passwords.
 
+## Updating small projects and experiments
+
+Small projects and experiments are loaded from the public [experiments.json Gist](https://gist.github.com/karan2399/d7384d30ea7ed5ec6cc24bc1b7e784e9). Edit that Gist to update the list without rebuilding or redeploying the site. Keep it as a JSON array of objects with `slug`, `name`, `description`, `technologies` (an array of strings), `deployedUrl`, and `githubUrl`. Leave either URL as an empty string if it is not available; its link will not be shown. Everything in the public Gist is visible to anyone.
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:

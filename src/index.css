@@ -176,4 +176,32 @@
         color-mix(in srgb, var(--color-primary) 35%, transparent),
       0 0 80px color-mix(in srgb, var(--color-primary) 25%, transparent);
   }
+
+  .experiment-slide {
+    flex: 0 0 85%;
+  }
+
+  .project-slide {
+    flex: 0 0 85%;
+  }
+
+  @media (min-width: 768px) {
+    .experiment-slide {
+      flex-basis: calc((100% - 1.5rem) / 2);
+    }
+
+    .project-slide {
+      flex-basis: calc((100% - 2rem) / 2);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .experiment-slide {
+      flex-basis: calc((100% - 3rem) / 3);
+    }
+
+    .project-slide {
+      flex-basis: calc((100% - 4rem) / 3);
+    }
+  }
 }
