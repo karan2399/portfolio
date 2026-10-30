@@ -1,44 +1,22 @@
 import { Menu, X } from "lucide-react"
 import Button from "../components/Button"
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-const navLinks = [
-  { href: "#about", label: "About" },
-  { href: "#projects", label: "Projects" },
-  { href: "#experiments", label: "Experiments" },
-  { href: "#experience", label: "Experience" },
-  { href: "#testimonials", label: "Testimonials" }
-]
-const Navbar = () => {
+const Navbar = ({ content }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-
-
   return (
     <header className="fixed top-0 left-0 bg-transparent py-5 right-0 z-50">
-      <nav className="container mx-auto px-6 flex items-center justify-between ">
-        <a href="#" className="text-xl font-bold tracking-tight hover:text-primary">
-          KP<span className="text-primary">.</span>
+      <nav aria-label={content.navigationLabel} className="container mx-auto px-6 flex items-center justify-between ">
+        <a href="#" className="text-xl font-bold tracking-tight hover:text-primary" aria-label={content.brand}>
+          {content.brand}<span className="text-primary">{content.brandSuffix}</span>
         </a>
         {/* Desktop Nav */}
         <div className="hidden md:flex  items-center gap-1">
           <div className="glass rounded-full px-2 py-1 flex items-center gap-1">
             {
-              navLinks.map((link, index) => (
+              content.navigation.map((link) => (
                 <a className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground rounded-full hover:bg-surface"
-                  key={index} href={link.href}>{link.label}</a>
+                  key={link.href} href={link.href}>{link.label}</a>
               ))
             }
           </div>
@@ -49,11 +27,11 @@ const Navbar = () => {
         <div className="hidden md:block">
           <Button
             size="sm"
-            href="https://linkedin.com/in/karan2399"
+            href={content.contactUrl}
             target="_blank"
             rel="noopener noreferrer"
           >
-            Contact Me
+            {content.contactLabel}
           </Button>
         </div>
 
@@ -62,6 +40,8 @@ const Navbar = () => {
         {/* Mobile */}
         <button
           className="md:hidden p-2 text-foreground cursor-pointer"
+          aria-label={isMobileMenuOpen ? content.closeMenuLabel : content.openMenuLabel}
+          aria-expanded={isMobileMenuOpen}
           onClick={() => setIsMobileMenuOpen((prev) => !prev)}
         >
          {isMobileMenuOpen ? <X size={24}/> : <Menu size={24} /> }
@@ -73,10 +53,10 @@ const Navbar = () => {
       {isMobileMenuOpen && (
         <div className="md:hidden glass-strong animate-fade-in">
           <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
-            {navLinks.map((link, index) => (
+            {content.navigation.map((link) => (
               <a
                 href={link.href}
-                key={index}
+                key={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="text-lg text-muted-foreground hover:text-foreground py-2"
               >
@@ -85,12 +65,12 @@ const Navbar = () => {
             ))}
 
             <Button
-              href="https://linkedin.com/in/karan2399"
+              href={content.contactUrl}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Contact Me
+              {content.contactLabel}
             </Button>
           </div>
         </div>

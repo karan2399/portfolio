@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import  AnimatedBorderButton  from "@/components/AnimatedBorderButton";
 import { resolveProjectImageUrl } from "@/data/projects";
 
-const Projects = ({ projects, status }) => {
+const Projects = ({ projects, copy }) => {
   const sliderRef = useRef(null);
   const [canScrollBackward, setCanScrollBackward] = useState(false);
   const [canScrollForward, setCanScrollForward] = useState(false);
@@ -57,38 +57,28 @@ const Projects = ({ projects, status }) => {
         {/* Section Header */}
         <div className="text-center mx-auto max-w-3xl mb-16">
           <span className="text-secondary-foreground text-sm font-medium tracking-wider uppercase animate-fade-in">
-            Featured Work
+            {copy.eyebrow}
           </span>
           <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 animate-fade-in animation-delay-100 text-secondary-foreground">
-            Projects that
+            {copy.headline[0]}
             <span className="font-serif italic font-normal text-white">
-              {" "}
-              make an impact.
+              {copy.headline[1]}
             </span>
           </h2>
           <p className="text-muted-foreground animate-fade-in animation-delay-200">
-            A selection of my recent work, from complex web applications to
-            innovative tools that solve real-world problems.
+            {copy.description}
           </p>
         </div>
 
         {/* Projects Grid */}
-        {status === "loading" && (
-          <p role="status" className="text-center text-muted-foreground">
-            Loading projects…
-          </p>
-        )}
-        {status === "error" && (
-          <p role="alert" className="text-center text-muted-foreground">
-            Project details couldn’t be loaded. Please try again later.
-          </p>
-        )}
-        {status === "loaded" && (
+        {projects.length === 0 ? (
+          <p className="text-center text-muted-foreground">{copy.empty}</p>
+        ) : (
           <>
             <div
               ref={sliderRef}
               role={isSlider ? "region" : undefined}
-              aria-label={isSlider ? "Featured projects" : undefined}
+              aria-label={isSlider ? copy.carouselLabel : undefined}
               aria-roledescription={isSlider ? "carousel" : undefined}
               tabIndex={isSlider ? 0 : undefined}
               className={
@@ -101,7 +91,7 @@ const Projects = ({ projects, status }) => {
                 <a
                   key={project.slug}
                   href={`#project/${project.slug}`}
-                  aria-label={`View details for ${project.title}`}
+                  aria-label={copy.viewDetailsFor.replace("{title}", project.title)}
                   role={isSlider ? "group" : undefined}
                   aria-roledescription={isSlider ? "slide" : undefined}
                   className={`group glass rounded-2xl overflow-hidden animate-fade-in md:row-span-1 ${
@@ -123,7 +113,7 @@ const Projects = ({ projects, status }) => {
                       />
                       <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                         <span className="inline-flex items-center gap-2 rounded-full glass px-5 py-3 text-sm font-medium">
-                          View project details <ArrowUpRight className="h-4 w-4" />
+                          {copy.viewDetailsAction} <ArrowUpRight className="h-4 w-4" />
                         </span>
                       </div>
                     </div>
@@ -159,7 +149,7 @@ const Projects = ({ projects, status }) => {
               <div className="mt-6 flex justify-end gap-3">
                 <button
                   type="button"
-                  aria-label="Previous projects"
+                  aria-label={copy.previous}
                   onClick={() => scrollSlider(-1)}
                   disabled={!canScrollBackward}
                   className="glass rounded-full p-3 text-foreground transition-colors hover:text-primary disabled:cursor-not-allowed disabled:opacity-40"
@@ -168,7 +158,7 @@ const Projects = ({ projects, status }) => {
                 </button>
                 <button
                   type="button"
-                  aria-label="Next projects"
+                  aria-label={copy.next}
                   onClick={() => scrollSlider(1)}
                   disabled={!canScrollForward}
                   className="glass rounded-full p-3 text-foreground transition-colors hover:text-primary disabled:cursor-not-allowed disabled:opacity-40"
@@ -182,8 +172,8 @@ const Projects = ({ projects, status }) => {
 
         {/* View All CTA */}
         <div className="text-center mt-12 animate-fade-in animation-delay-500">
-          <AnimatedBorderButton  link="https://www.github.com/karan2399">
-            View All Projects
+          <AnimatedBorderButton link={copy.viewAllUrl}>
+            {copy.viewAll}
             <ArrowUp className="w-5 h-5" />
           </AnimatedBorderButton>
         </div>

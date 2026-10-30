@@ -1,25 +1,4 @@
-const experiences = [
-  {
-    period: "2021 — Present",
-    role: "Web Developer",
-    company: "Boyd Interactive",
-    description:
-      "Building frontend web apps for a suite of gambling products.  Working on Ionic Components. Working mostly on Angular Ionic Code to create, manage and debug applications",
-    technologies: ["Angular", "TypeScript", "Ionic", "HTML","CSS"],
-    current: true,
-  },
-  {
-    period: "2021 — 2021",
-    role: "UI Developer | Angular ",
-    company: "NTT Data Services.",
-    description:
-      "Developed Front-End applications from the legacy applications using their new shared components.Hands on working with Bootstrap and CSS3 Media Queries to support for Responsive Web Design",
-    technologies: ["Angular", "Typescript", "HTML", "JS"],
-    current: false,
-  },
-];
-
-const Experience = () => {
+const Experience = ({ experiences, copy }) => {
   return (
     <section id="experience" className="py-32 relative overflow-hidden">
       <div
@@ -34,17 +13,16 @@ const Experience = () => {
             className="text-secondary-foreground text-sm
            font-medium tracking-wider uppercase animate-fade-in"
           >
-            Career Journey
+            {copy.eyebrow}
           </span>
           <h2
             className="text-4xl md:text-5xl font-bold
            mt-4 mb-6 animate-fade-in animation-delay-100
             text-secondary-foreground"
           >
-            Experience that{" "}
+            {copy.headline[0]}
             <span className="font-serif italic font-normal text-white">
-              {" "}
-              speaks volumes.
+              {copy.headline[1]}
             </span>
           </h2>
 
@@ -52,8 +30,7 @@ const Experience = () => {
             className="text-muted-foreground
            animate-fade-in animation-delay-200"
           >
-            A timeline of my professional growth, from curious beginner to
-            senior engineer leading teams and building products at scale.
+            {copy.description}
           </p>
         </div>
 

@@ -1,28 +1,24 @@
-# React + Vite
+# Portfolio content
 
-## Updating project details
+The portfolio's editable text, links, project data, experience, testimonials, and image URLs live in one JSON document: [`src/data/content.json`](./src/data/content.json). This complete file is also the content to paste into a public GitHub Gist. Name the Gist file `portfolio_content.json` and paste the entire JSON document as-is.
 
-Project details are loaded from the public [projects.json Gist](https://gist.github.com/karan2399/a07ac9de0c84ef94a10c52da301fe727) when the portfolio opens. Edit that Gist to update project text, links, tags, and other details; those changes do not require rebuilding or redeploying this site.
+## Connect your Gist
 
-Keep the file named `projects.json` and make sure it remains a **public** Gist containing valid JSON: an array of project objects. Each project needs `slug`, `title`, `description`, `image`, `screenshots`, `tags`, `highlights`, `overview`, `role`, `demoCredentials`, `liveDemoUrl`, and `github` fields. `screenshots` is an array of objects with `src`, `alt`, and `caption`; `demoCredentials` needs `email`, `password`, and `note`. Use double quotes around JSON keys and strings, and do not leave trailing commas.
+The site now loads your public Gist by default:
+`https://gist.githubusercontent.com/karan2399/57dd5b27216e6925fd2b49877c87bc65/raw/portfolio_content.json`
 
-Image paths such as `/images/inquiry-desk-1.png` refer to files already included with the deployed site. Adding or replacing local images still requires a site deployment; use publicly hosted `https://` image URLs in the Gist to change images without one. Everything in the public Gist is visible to anyone. The `demoCredentials` fields are displayed on the site, so use only safe demo-account details there; never include private information, API keys, or real passwords.
+To switch to a different Gist, create a **public** Gist containing `portfolio_content.json`, copy the file's **Raw** URL, and set it in `.env.local` at the project root:
 
-## Updating small projects and experiments
+   ```dotenv
+   VITE_CONTENT_URL=https://gist.githubusercontent.com/USERNAME/GIST_ID/raw/portfolio_content.json
+   ```
 
-Small projects and experiments are loaded from the public [experiments.json Gist](https://gist.github.com/karan2399/d7384d30ea7ed5ec6cc24bc1b7e784e9). Edit that Gist to update the list without rebuilding or redeploying the site. Keep it as a JSON array of objects with `slug`, `name`, `description`, `technologies` (an array of strings), `deployedUrl`, and `githubUrl`. Leave either URL as an empty string if it is not available; its link will not be shown. Everything in the public Gist is visible to anyone.
+Restart the dev server or rebuild/redeploy the site after changing the URL. Subsequent edits to the Gist JSON are fetched by the deployed site without rebuilding.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+If the hosted JSON cannot be fetched or is invalid, the site logs the error and keeps showing its included content.
 
-Currently, two official plugins are available:
+## Editing content
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Edit the matching fields in the JSON file. The top-level keys correspond to site metadata/navigation, each section, and the project/experiment/experience/testimonial lists. Links and image sources can be absolute `https://` URLs; local image paths (for example `/images/profile-photo.jpg`) use files included with the deployed site. A public Gist is visible to anyone, so do not put secrets or private information in it.
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The contact form also requires the existing `VITE_EMAILJS_SERVICE_ID`, `VITE_EMAILJS_TEMPLATE_ID`, and `VITE_EMAILJS_PUBLIC_KEY` environment variables. These are separate from the public content document.

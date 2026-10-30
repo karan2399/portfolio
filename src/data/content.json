@@ -1,0 +1,224 @@
+{
+  "site": {
+    "title": "Karan Patel | Front-End Developer",
+    "description": "Portfolio of Karan Patel, front-end engineer specializing in Angular, React, Ionic and TypeScript.",
+    "brand": "KP",
+    "brandSuffix": ".",
+    "navigation": [
+      { "href": "#about", "label": "About" },
+      { "href": "#projects", "label": "Projects" },
+      { "href": "#experiments", "label": "Experiments" },
+      { "href": "#experience", "label": "Experience" },
+      { "href": "#testimonials", "label": "Testimonials" }
+    ],
+    "contactLabel": "Contact Me",
+    "contactUrl": "https://linkedin.com/in/karan2399",
+    "navigationLabel": "Main navigation",
+    "openMenuLabel": "Open navigation menu",
+    "closeMenuLabel": "Close navigation menu"
+  },
+  "hero": {
+    "eyebrow": "Front End Engineer • Angular Specialist",
+    "headline": ["Crafting", "digital", "experiences with", "precision."],
+    "description": "Hi, I'm Karan Patel — a front end engineer specializing in Angular, React, Ionic and TypeScript. I build scalable, performant web applications that users love.",
+    "contactLabel": "Contact Me",
+    "contactUrl": "https://linkedin.com/in/karan2399",
+    "socialLabel": "Follow me:",
+    "socialLinks": [
+      { "id": "github", "label": "GitHub", "href": "https://github.com/karan2399" },
+      { "id": "linkedin", "label": "LinkedIn", "href": "https://linkedin.com/in/karan2399" }
+    ],
+    "profileImage": "/images/profile-photo.jpg",
+    "profileImageAlt": "Karan Patel",
+    "availability": "Available for work",
+    "yearsExperience": "5+",
+    "yearsExperienceLabel": "Years Exp.",
+    "skillsHeading": "Technologies I work with",
+    "skills": [
+      "Angular", "React", "Ionic", "TypeScript", "Node.js", "PostgreSQL",
+      "MongoDB", "Tailwind CSS", "Jest", "Cypress", "Figma", "Git",
+      "GitHub Actions", "Claude", "GitHub Copilot"
+    ],
+    "scrollLabel": "Scroll"
+  },
+  "about": {
+    "eyebrow": "About Me",
+    "headline": ["Building the future,", " one component at a time."],
+    "paragraphs": [
+      "I'm a passionate software engineer with over 5 years of experience crafting digital products that make a difference. My journey started with a curiosity for how things work on the web, and it has evolved into a deep expertise in modern frontend technologies.",
+      "I specialize in Angular, React, Ionic, and TypeScript, building everything from sleek landing pages to complex enterprise applications. My approach combines technical excellence with a keen eye for design and user experience.",
+      "When I'm not coding, you'll find me exploring new technologies, building projects and asking questions."
+    ],
+    "quote": "“My mission is to create digital experiences that are not just functional, but truly delightful — products that users love to use and developers love to maintain.”",
+    "highlights": [
+      { "icon": "code", "title": "Clean Code", "description": "Writing maintainable, scalable code that stands the test of time." },
+      { "icon": "rocket", "title": "Performance", "description": "Optimizing for speed and delivering lightning-fast user experiences." },
+      { "icon": "users", "title": "Collaboration", "description": "Working closely with teams to bring ideas to life." },
+      { "icon": "lightbulb", "title": "Innovation", "description": "Staying ahead with the latest technologies and best practices." }
+    ]
+  },
+  "projectsSection": {
+    "eyebrow": "Featured Work",
+    "headline": ["Projects that", " make an impact."],
+    "description": "A selection of my recent work, from complex web applications to innovative tools that solve real-world problems.",
+    "loading": "Loading projects…",
+    "error": "Project details couldn’t be loaded. Please try again later.",
+    "carouselLabel": "Featured projects",
+    "viewDetails": "View project details",
+    "viewDetailsFor": "View details for {title}",
+    "viewDetailsAction": "View project details",
+    "viewAll": "View All Projects",
+    "viewAllUrl": "https://www.github.com/karan2399",
+    "previous": "Previous projects",
+    "next": "Next projects",
+    "empty": "Featured projects are coming soon."
+  },
+  "projects": [
+    {
+      "slug": "inquiry-desk",
+      "title": "Inquiry Desk",
+      "description": "An inquiry management web app for business owners.",
+      "image": "/images/inquiry-desk-3.png",
+      "screenshots": [
+        { "src": "/images/inquiry-desk-1.png", "alt": "Illustrative Inquiry Desk dashboard preview", "caption": "Statuses Page" },
+        { "src": "/images/inquiry-desk-2.png", "alt": "Illustrative Inquiry Desk inbox preview", "caption": "Categories Page" },
+        { "src": "/images/inquiry-desk-3.png", "alt": "Illustrative Inquiry Desk inbox preview", "caption": "Inquiries Page" },
+        { "src": "/images/inquiry-desk-4.png", "alt": "Illustrative Inquiry Desk inbox preview", "caption": "Login/Home Page" }
+      ],
+      "tags": ["Angular", "TypeScript", "Node.js", "Tailwind CSS"],
+      "highlights": [
+        "Responsive dashboard and inquiry workflows",
+        "Reusable Angular components and TypeScript types",
+        "Inquiry status tracking and search",
+        "REST API integration",
+        "Interceptors: Error and Token",
+        "Form validation and accessible interactions"
+      ],
+      "overview": "Inquiry Desk helps a small business keep customer requests organized in one place. This sample project detail content demonstrates how the project story, interface previews, and key implementation topics can be presented.",
+      "role": "Front-end Angular development",
+      "demoCredentials": {
+        "email": "admin",
+        "password": "admin",
+        "note": "This is an admin account who can manage inquries, categories and statuses."
+      },
+      "liveDemoUrl": "https://inqiury-desk-uo76.vercel.app/",
+      "github": "https://github.com/karan2399/inqiuryDesk"
+    }
+  ],
+  "experimentsSection": {
+    "eyebrow": "Beyond the featured work",
+    "headline": ["Small projects", " & experiments."],
+    "description": "A collection of things I build to explore ideas, learn new technologies, and try something different.",
+    "loading": "Loading experiments…",
+    "error": "Experiment details couldn’t be loaded. Please try again later.",
+    "technologies": "Technologies",
+    "liveDemo": "Live demo",
+    "github": "GitHub",
+    "empty": "Small projects and experiments are coming soon."
+  },
+  "experiments": [
+    {
+      "slug": "dynamic-angular-forms",
+      "name": "Angular Dynamic Form",
+      "technologies": ["Angular", "Reactive Forms", "TypeScript", "Tailwind CSS"],
+      "description": "Dynamic forms are built using Reactive Forms (FormGroup, FormControl, and FormArray) or the Signals-based form system to generate form controls at runtime based on a metadata object or JSON configuration. This eliminates hardcoded HTML and is perfect for metadata-driven schemas, questionnaires, or flexible admin panels.",
+      "deployedUrl": "https://angulardynamicforms.vercel.app/",
+      "githubUrl": "https://github.com/karan2399/angular_dynamic_forms"
+    }
+  ],
+  "experienceSection": {
+    "eyebrow": "Career Journey",
+    "headline": ["Experience that", " speaks volumes."],
+    "description": "A timeline of my professional growth, from curious beginner to senior engineer leading teams and building products at scale."
+  },
+  "experience": [
+    {
+      "period": "2021 — Present",
+      "role": "Web Developer",
+      "company": "Boyd Interactive",
+      "description": "Building frontend web apps for a suite of gambling products. Working on Ionic Components. Working mostly on Angular Ionic Code to create, manage and debug applications",
+      "technologies": ["Angular", "TypeScript", "Ionic", "HTML", "CSS"],
+      "current": true
+    },
+    {
+      "period": "2021 — 2021",
+      "role": "UI Developer | Angular",
+      "company": "NTT Data Services.",
+      "description": "Developed Front-End applications from the legacy applications using their new shared components. Hands on working with Bootstrap and CSS3 Media Queries to support for Responsive Web Design",
+      "technologies": ["Angular", "Typescript", "HTML", "JS"],
+      "current": false
+    }
+  ],
+  "testimonialsSection": {
+    "eyebrow": "What People Say",
+    "headline": ["Kind words from", " amazing people."],
+    "previous": "Previous testimonial",
+    "next": "Next testimonial",
+    "goTo": "Go to testimonial {number}"
+  },
+  "testimonials": [
+    {
+      "quote": "Karan worked with me during a career transition to help develop my Resume and overall strategy to attract the best companies possible. He sat down with me to understand my background in detail and found creative ways to relate it back to the companies I am interested in working for. At last, with the help of Karan, I got placed in my dream job. Moreover, his expertise in a developer field is only matched by his wit, which helps make every interaction with him a glowing experience. If you're looking for an expert in web developing (don't call him a guru, he might laugh in your face) then look no further than Mr. Patel.",
+      "author": "Divyang",
+      "role": "Quality Assurance Analyst, Dynamicnext.",
+      "avatar": "https://images.unsplash.com/photo-1772371272179-3ecc656fc677?q=80&w=1160&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+    },
+    {
+      "quote": "He is the person in your team who knows how to follow before leading. I have worked with him and working with him was seamless. Curious, Helping, and learning new things are his most important qualities. I would recommend him for almost any sort of work that needs leading the team. He is a great team leader to work with.",
+      "author": "Yash Pandya",
+      "role": "Engineering Manager, Codal",
+      "avatar": "https://images.unsplash.com/photo-1772371272179-3ecc656fc677?q=80&w=1160&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+    }
+  ],
+  "contactSection": {
+    "eyebrow": "Get In Touch",
+    "headline": ["Let's build", " something great."],
+    "description": "Have a project in mind? I'd love to hear about it. Send me a message and let's discuss how we can work together.",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Your name...",
+      "email": "Email",
+      "emailPlaceholder": "your@email.com",
+      "message": "Message",
+      "messagePlaceholder": "Your message...",
+      "send": "Send Message",
+      "sending": "Sending...",
+      "success": "Message sent successfully! I'll get back to you soon.",
+      "error": "Failed to send message. Please try again later.",
+      "missingEmailConfig": "Email service configuration is missing. Please check the environment variables."
+    },
+    "informationHeading": "Contact Information",
+    "availabilityHeading": "Currently Available",
+    "availabilityDescription": "I'm currently open to new opportunities and exciting projects. Whether you need a full-time engineer or a freelance consultant, let's talk!",
+    "contactInfo": [
+      { "icon": "mail", "label": "Email", "value": "karan2399@gmail.com", "href": "mailto:karan2399@gmail.com" },
+      { "icon": "phone", "label": "Phone", "value": "+1 999 999 9999", "href": "tel:" },
+      { "icon": "location", "label": "Location", "value": "Toronto, CA", "href": "#" }
+    ]
+  },
+  "projectDetail": {
+    "back": "Back to projects",
+    "eyebrow": "Featured project",
+    "demo": "Deployed Project",
+    "about": "About the project",
+    "highlights": "Highlights",
+    "technologies": "Tools and technologies",
+    "tryDemo": "Try the demo",
+    "demoWarning": "These are dummy credentials for layout preview only. They are not real account details.",
+    "email": "Email",
+    "password": "Password",
+    "copy": "Copy credentials",
+    "copied": "Copied",
+    "clipboardUnavailable": "Clipboard unavailable",
+    "copyError": "Could not copy",
+    "source": "View source code",
+    "repository": "Explore the repository",
+    "github": "GitHub",
+    "role": "Role",
+    "credentialsTemplate": "Email: {email}\nPassword: {password}"
+  },
+  "messages": {
+    "contentLoading": "Loading portfolio…",
+    "contentError": "Could not load portfolio content. Showing the included content instead."
+  }
+}
